@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package rover;
+
+service RoverControl {
+  // Fetch latest camera and ultrasonic data
+  rpc GetSensorData (EmptyRequest) returns (SensorData);
+  // Send movement/action commands to the Pi
+  rpc ExecuteCommand (CommandRequest) returns (CommandResponse);
+}
+
+message EmptyRequest {}
+
+message SensorData {
+  repeated int32 ultrasonic = 1; // Array format: [Left, Front, Right]
+  bytes image = 2;               // JPEG encoded byte string
+}
+
+message CommandRequest {
+  string action = 1;             // e.g., "move", "drop", "stop"
+  string direction = 2;          // e.g., "front", "left", "u_turn", "front_left"
+}
+
+message CommandResponse {
+  bool success = 1;
+}
