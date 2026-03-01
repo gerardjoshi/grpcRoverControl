@@ -1,5 +1,5 @@
 # grpcRoverControl
-Base Code for controlling a Raspberry PI controlled Rover with L298N motor drivers controlling regular/mechanum wheels for omnidirectional control
+Base Code for controlling a Raspberry PI controlled Rover with L298N motor drivers controlling regular/mechanum wheels for omnidirectional control using gRPC protocol.
 
 Run the proto init line to ensure that the appropriate .py files are generated to ensure the server and agent_client / client files work 
 
